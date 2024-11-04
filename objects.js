@@ -77,18 +77,6 @@ function addSecondAuthor(book, additionalAuthor) {
 }
 
 /**
- * addReviews
- *
- * - receives a book object
- * - receives an array of review objects
- *
- * - returns the book object with a `reviews` property that contains the reviews array
- */
-function addReviews(book, reviews) {
-  // write your code here...
-}
-
-/**
  * 🌶️🌶️🌶️ addReview
  *
  * - receives a book object which MIGHT have a reviews property
@@ -111,6 +99,5 @@ module.exports = {
   addISBN,
   updatePublishedYear,
   addSecondAuthor,
-  addReviews,
   addReview,
 };

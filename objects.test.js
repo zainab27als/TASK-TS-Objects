@@ -6,7 +6,6 @@ const {
   addISBN,
   updatePublishedYear,
   addSecondAuthor,
-  addReviews,
 } = require("./objects.js");
 
 describe("Book Object Manipulations", () => {
@@ -73,27 +72,12 @@ describe("Book Object Manipulations", () => {
         expect(updatedBook.publishedYear).toBe(publishYear);
       });
     });
-  });
 
-  describe("Advanced Object Operations", () => {
     describe("addSecondAuthor", () => {
       it("should modify the author property to include an additional author", () => {
         const secondAuthor = faker.person.fullName();
         const updatedBook = addSecondAuthor(book, secondAuthor);
         expect(updatedBook.author).toEqual([book.author, secondAuthor]);
-      });
-    });
-
-    describe("Add Reviews", () => {
-      it("should add reviews to the book", () => {
-        const reviews = Array(10)
-          .fill(0)
-          .map(() => ({
-            reviewer: faker.person.fullName(),
-            comment: faker.lorem.sentence(),
-          }));
-        const updatedBook = addReviews(book, reviews);
-        expect(updatedBook.reviews).toEqual(reviews);
       });
     });
   });
