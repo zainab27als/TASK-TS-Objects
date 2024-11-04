@@ -1,3 +1,4 @@
+const { faker } = require("@faker-js/faker");
 const {
   createBook,
   printBookTitleAndYear,
@@ -12,66 +13,88 @@ describe("Book Object Manipulations", () => {
   let book;
 
   beforeEach(() => {
-    book = createBook();
+    book = {
+      title: faker.book.title(),
+      author: faker.book.author(),
+      publishedYear: faker.date.past().getFullYear(),
+      genre: faker.book.genre(),
+    };
   });
 
-  describe("Create Book", () => {
-    it("should create a book object with specified properties", () => {
-      expect(book).toEqual({
-        title: "JavaScript: The Definitive Guide",
-        author: "David Flanagan",
-        publishedYear: 2020,
-        genre: "Programming",
+  describe("Understanding Objects", () => {
+    describe("createBook", () => {
+      it("should create a book object with specified properties", () => {
+        const { title, author, publishedYear, genre } = book;
+        expect(createBook(title, author, publishedYear, genre)).toEqual(book);
+      });
+    });
+
+    describe("printBookTitleAndYear", () => {
+      it("should return the book title and published year as a string", () => {
+        const { title, publishedYear } = book;
+        expect(printBookTitleAndYear(book)).toBe(`${title} ${publishedYear}`);
+      });
+
+      it("should access the title using dot notation", () => {
+        expect(
+          printBookTitleAndYear.toString().includes("book.title")
+        ).toBeTruthy();
+      });
+
+      it("should access the publishYear using bracket notation", () => {
+        expect(
+          printBookTitleAndYear.toString().includes('book["publishedYear"]')
+        ).toBeTruthy();
       });
     });
   });
 
-  describe("Print Book Title and Year", () => {
-    it("should return the book title and published year as a string", () => {
-      expect(printBookTitleAndYear(book)).toBe(
-        "JavaScript: The Definitive Guide 2020"
-      );
+  describe("Modifying Objects", () => {
+    describe("addPageCount", () => {
+      it("should add a pageCount property to the book", () => {
+        const pageCount = faker.number.int({ min: 100, max: 2000 });
+        const updatedBook = addPageCount(book, pageCount);
+        expect(updatedBook.pageCount).toBe(pageCount);
+      });
+    });
+
+    describe("addISBN", () => {
+      it("should add an ISBN to the book", () => {
+        const isbn = faker.commerce.isbn();
+        const updatedBook = addISBN(book, isbn);
+        expect(updatedBook.ISBN).toBe(isbn);
+      });
+    });
+
+    describe("updatePublishedYear", () => {
+      it("should update the published year of the book", () => {
+        const publishYear = faker.date.past().getFullYear();
+        const updatedBook = updatePublishedYear(book, publishYear);
+        expect(updatedBook.publishedYear).toBe(publishYear);
+      });
     });
   });
 
-  describe("Add Page Count", () => {
-    it("should add a pageCount property to the book", () => {
-      const updatedBook = addPageCount(book, 1096);
-      expect(updatedBook.pageCount).toBe(1096);
+  describe("Advanced Object Operations", () => {
+    describe("addSecondAuthor", () => {
+      it("should modify the author property to include an additional author", () => {
+        const secondAuthor = faker.person.fullName();
+        const updatedBook = addSecondAuthor(book, secondAuthor);
+        expect(updatedBook.author).toEqual([book.author, secondAuthor]);
+      });
     });
-  });
 
-  describe("Add ISBN", () => {
-    it("should add an ISBN to the book", () => {
-      const updatedBook = addISBN(book, "978-1491952023");
-      expect(updatedBook.ISBN).toBe("978-1491952023");
-    });
-  });
-
-  describe("Update Published Year", () => {
-    it("should update the published year of the book", () => {
-      const updatedBook = updatePublishedYear(book, 2021);
-      expect(updatedBook.publishedYear).toBe(2021);
-    });
-  });
-
-  describe("Modify Author", () => {
-    it("should modify the author property to include an additional author", () => {
-      const updatedBook = addSecondAuthor(book, "Another Author");
-      expect(updatedBook.author).toEqual(["David Flanagan", "Another Author"]);
-    });
-  });
-
-  describe("Add Reviews", () => {
-    it("should add reviews to the book", () => {
-      const reviews = [
-        {
-          reviewer: "Book Critic",
-          comment: "A comprehensive guide to JavaScript.",
-        },
-      ];
-      const updatedBook = addReviews(book, reviews);
-      expect(updatedBook.reviews).toEqual(reviews);
+    describe("Add Reviews", () => {
+      it("should add reviews to the book", () => {
+        const reviews = Array(10)
+          .fill(0)
+          .map(() => ({
+            reviewer: faker.person.fullName(),
+            comment: faker.lorem.sentence(),
+          }));
+        const updatedBook = addReviews(book, reviews);
+        expect(updatedBook.reviews).toEqual(reviews);
+      });
     });
   });
 });
