@@ -1,27 +1,27 @@
 /**
  * createBook
  *
+ * - receives data about the book
  * - returns an object created using curly braces {}
- * that includes the following information:
+ * that includes the following format:
  *
- * - Title: "JavaScript: The Definitive Guide"
- * - Author: "David Flanagan"
- * - Published Year: 2020
- * - Genre: "Programming"
+ * - title: "JavaScript: The Definitive Guide"
+ * - author: "David Flanagan"
+ * - publishedYear: 2020
+ * - genre: "Programming"
  */
-function createBook() {
+function createBook(title, author, publishedYear, genre) {
   // write your code here...
 }
 
 // DO NOT CHANGE THE LINE OF CODE BELOW (you can use it for testing your code)
 const book = createBook();
 
-// 2) Write a `printBookTitleAndYear` function that returns the book’s title with its publish year separated by space. Access the book title using dot-notation, and access the publish year using bracket-notation.
 /**
  * printBookTitleAndYear
  *
  * - receives a book object (just like the one created by `createBook`)
- * - returns the book’s title with its publish year separated by space.
+ * - returns the book’s title with its publish year separated by a space.
  *
  * Access the book title using dot-notation, and access the publish year using bracket-notation.
  */
