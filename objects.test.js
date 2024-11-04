@@ -3,8 +3,8 @@ const {
   printBookTitleAndYear,
   addPageCount,
   addISBN,
-  addUpdateYear,
-  modifyAuthor,
+  updatePublishedYear,
+  addSecondAuthor,
   addReviews,
 } = require("./objects.js");
 
@@ -50,14 +50,14 @@ describe("Book Object Manipulations", () => {
 
   describe("Update Published Year", () => {
     it("should update the published year of the book", () => {
-      const updatedBook = addUpdateYear(book, 2021);
+      const updatedBook = updatePublishedYear(book, 2021);
       expect(updatedBook.publishedYear).toBe(2021);
     });
   });
 
   describe("Modify Author", () => {
     it("should modify the author property to include an additional author", () => {
-      const updatedBook = modifyAuthor(book, "Another Author");
+      const updatedBook = addSecondAuthor(book, "Another Author");
       expect(updatedBook.author).toEqual(["David Flanagan", "Another Author"]);
     });
   });
