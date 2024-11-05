@@ -1,4 +1,4 @@
-const { fakerAR } = require("@faker-js/faker");
+const { faker } = require("@faker-js/faker");
 const { addReview } = require("./objects");
 
 describe("🌶️🌶️🌶️ Challenge", () => {
@@ -7,14 +7,14 @@ describe("🌶️🌶️🌶️ Challenge", () => {
 
   beforeEach(() => {
     book = {
-      title: fakerAR.book.title(),
-      author: fakerAR.book.author(),
-      publishedYear: fakerAR.date.past().getFullYear(),
-      genre: fakerAR.book.genre(),
+      title: faker.book.title(),
+      author: faker.book.author(),
+      publishedYear: faker.date.past().getFullYear(),
+      genre: faker.book.genre(),
     };
     newReview = {
-      reviewer: fakerAR.person.fullName(),
-      comment: fakerAR.lorem.sentence(),
+      reviewer: faker.person.fullName(),
+      comment: faker.lorem.sentence(),
     };
   });
 
@@ -22,8 +22,8 @@ describe("🌶️🌶️🌶️ Challenge", () => {
     it("should add a review to an exist array of reviews", () => {
       book.reviews = [
         {
-          reviewer: fakerAR.person.fullName(),
-          comment: fakerAR.lorem.sentence(),
+          reviewer: faker.person.fullName(),
+          comment: faker.lorem.sentence(),
         },
       ];
       const { reviewer, comment } = newReview;
