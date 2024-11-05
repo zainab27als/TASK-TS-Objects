@@ -76,7 +76,7 @@ describe("Book Object Manipulations", () => {
     describe("addSecondAuthor", () => {
       it("should modify the author property to include an additional author", () => {
         const secondAuthor = faker.person.fullName();
-        const updatedBook = addSecondAuthor(book, secondAuthor);
+        const updatedBook = addSecondAuthor({ ...book }, secondAuthor);
         expect(updatedBook.author).toEqual([book.author, secondAuthor]);
       });
     });
