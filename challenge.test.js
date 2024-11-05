@@ -29,6 +29,7 @@ describe("🌶️🌶️🌶️ Challenge", () => {
       const { reviewer, comment } = newReview;
       const updatedBook = addReview(book, reviewer, comment);
       expect(updatedBook.reviews).toContainEqual(newReview);
+      expect(updatedBook.reviews.length).toBe(2);
     });
 
     it("should create a review array if one didn't already exist", () => {
