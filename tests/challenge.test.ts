@@ -1,10 +1,9 @@
 import { faker } from "@faker-js/faker";
 
-import { Review, addReview } from "../challenge";
-import { Book } from "../objects";
+import { Review, ReviewedBook, addReview } from "../challenge";
 
 describe("🌶️🌶️🌶️ Challenge", () => {
-  let book: Book;
+  let book: ReviewedBook;
   let newReview: Review;
 
   beforeEach(() => {

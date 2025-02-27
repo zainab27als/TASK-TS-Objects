@@ -1,8 +1,12 @@
-import { BookType } from "./objects";
+import { Book } from "./objects";
 
 interface Review {
   reviewer: string;
   comment: string;
+}
+
+interface ReviewedBook extends Book {
+  reviews?: Review[];
 }
 
 /**
@@ -17,8 +21,8 @@ interface Review {
  *
  * - returns the book object with the new review included in the reviews array
  */
-function addReview(book: BookType, reviewer: string, comment: string) {
+function addReview(book: ReviewedBook, reviewer: string, comment: string) {
   // write your code here
 }
 
-export { addReview, Review };
+export { addReview, Review, ReviewedBook };

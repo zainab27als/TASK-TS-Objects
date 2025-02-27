@@ -1,8 +1,10 @@
 interface Book {
   title: string;
-  author: string;
+  author: string | string[];
   publishedYear: number;
   genre: string;
+  pageCount?: number;
+  ISBN?: string;
 }
 
 /**
