@@ -1,10 +1,10 @@
-# JS-Objects
+# TS-Objects
 
 ## Instructions
 
-- Fork and clone [this repository](https://github.com/JoinCODED/JS-Objects) to your `Development` folder.
+- Fork and clone [this repository](https://github.com/JoinCODED/TS-Objects) to your `Development` folder.
   - ```bash
-    git clone git@github.com:<your_username>/JS-Objects.git
+    git clone git@github.com:<your_username>/TS-Objects.git
     ```
 
 ### Running The Tests
