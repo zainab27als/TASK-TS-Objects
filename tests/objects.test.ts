@@ -10,7 +10,7 @@ import {
   updatePublishedYear,
 } from "../objects";
 
-describe("Book Object Manipulations", () => {
+describe("Books", () => {
   let book: Book;
 
   beforeEach(() => {
