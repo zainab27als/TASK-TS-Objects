@@ -1,9 +1,11 @@
-const { faker } = require("@faker-js/faker");
-const { addReview } = require("./objects");
+import { faker } from "@faker-js/faker";
+
+import { Review, addReview } from "../challenge";
+import { Book } from "../objects";
 
 describe("🌶️🌶️🌶️ Challenge", () => {
-  let book;
-  let newReview;
+  let book: Book;
+  let newReview: Review;
 
   beforeEach(() => {
     book = {

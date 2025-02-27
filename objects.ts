@@ -1,3 +1,10 @@
+interface Book {
+  title: string;
+  author: string;
+  publishedYear: number;
+  genre: string;
+}
+
 /**
  * createBook
  *
@@ -10,12 +17,22 @@
  * - publishedYear: 2020
  * - genre: "Programming"
  */
-function createBook(title, author, publishedYear, genre) {
+function createBook(
+  title: string,
+  author: string,
+  publishedYear: number,
+  genre: string
+) {
   // write your code here...
 }
 
 // DO NOT CHANGE THE LINE OF CODE BELOW (you can use it for testing your code)
-const book = createBook();
+const book = createBook(
+  "Hitchhiker's Guide to The Galaxy",
+  "Douglas Adams",
+  1965,
+  "Sci-Fi"
+);
 
 /**
  * printBookTitleAndYear
@@ -25,7 +42,7 @@ const book = createBook();
  *
  * Access the book title using dot-notation, and access the publish year using bracket-notation.
  */
-function printBookTitleAndYear(book) {
+function printBookTitleAndYear(book: Book) {
   // write your code here...
 }
 
@@ -36,7 +53,7 @@ function printBookTitleAndYear(book) {
  * - received a pageCount
  * - returns the book object with a new `pageCount` property
  */
-function addPageCount(book, pageCount) {
+function addPageCount(book: Book, pageCount: number) {
   // write your code here...
 }
 
@@ -48,7 +65,7 @@ function addPageCount(book, pageCount) {
  *
  * - returns the book object with a new `ISBN` property
  */
-function addISBN(book, ISBN) {
+function addISBN(book: Book, ISBN: string) {
   // write your code here...
 }
 
@@ -60,7 +77,7 @@ function addISBN(book, ISBN) {
  *
  * - returns the book object with the `publishedYear` updates
  */
-function updatePublishedYear(book, newYear) {
+function updatePublishedYear(book: Book, newYear: number) {
   // write your code here...
 }
 
@@ -72,32 +89,16 @@ function updatePublishedYear(book, newYear) {
  *
  * - returns the book object with the `author` property changed to an array with BOTH authors
  */
-function addSecondAuthor(book, additionalAuthor) {
+function addSecondAuthor(book: Book, additionalAuthor: string) {
   // write your code here...
 }
 
-/**
- * 🌶️🌶️🌶️ addReview
- *
- * - receives a book object which MIGHT have a reviews property
- * - receives a reviewer
- * - receives a comment
- *
- * Create a new review object made up of a `reviewer` and `comment`
- *  and add it to the book's reviews array
- *
- * - returns the book object with the new review included in the reviews array
- */
-function addReview(book, reviewer, comment) {
-  // write your code here
-}
-
-module.exports = {
+export {
   createBook,
   printBookTitleAndYear,
   addPageCount,
   addISBN,
   updatePublishedYear,
   addSecondAuthor,
-  addReview,
+  Book,
 };

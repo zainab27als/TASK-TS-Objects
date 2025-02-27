@@ -1,15 +1,17 @@
-const { faker } = require("@faker-js/faker");
-const {
+import { faker } from "@faker-js/faker";
+
+import {
+  Book,
+  addISBN,
+  addPageCount,
+  addSecondAuthor,
   createBook,
   printBookTitleAndYear,
-  addPageCount,
-  addISBN,
   updatePublishedYear,
-  addSecondAuthor,
-} = require("./objects.js");
+} from "../objects";
 
 describe("Book Object Manipulations", () => {
-  let book;
+  let book: Book;
 
   beforeEach(() => {
     book = {
