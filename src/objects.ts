@@ -9,7 +9,7 @@ interface Book {
 }
 
 /**
- * 1) Using `createBook` function:
+ * `createBook` function:
  * - Accepts four parameters:
  *   - `title` (string)
  *   - `author` (string)
@@ -17,8 +17,8 @@ interface Book {
  *   - `genre` (string)
  * - Returns a new `Book` object with these properties.
  * Example:
- * createBook("JavaScript: The Definitive Guide", "David Flanagan", 2020, "Programming");
- * // => { title: "JavaScript: The Definitive Guide", author: "David Flanagan", publishedYear: 2020, genre: "Programming" }
+ *  createBook("JavaScript: The Definitive Guide", "David Flanagan", 2020, "Programming");
+ *   // => { title: "JavaScript: The Definitive Guide", author: "David Flanagan", publishedYear: 2020, genre: "Programming" }
  */
 function createBook(
   title: string,
@@ -40,13 +40,13 @@ const book = createBook(
 );
 
 /**
- * 2) Using `printBookTitleAndYear` function:
+ * `printBookTitleAndYear` function:
  * - Accepts a `book` parameter of type `Book`.
  * - Returns the book’s title with its publish year separated by a space.
  * - Access the book title using dot-notation and access the publish year using bracket-notation.
  * Example:
- * printBookTitleAndYear(book);
- * // => "Hitchhiker's Guide to The Galaxy 1965"
+ *  printBookTitleAndYear(book);
+ *   // => "Hitchhiker's Guide to The Galaxy 1965"
  */
 function printBookTitleAndYear(book: Book): string {
   // write your code here...
@@ -55,14 +55,14 @@ function printBookTitleAndYear(book: Book): string {
 }
 
 /**
- * 3) Using `addPageCount` function:
+ * `addPageCount` function:
  * - Accepts:
  *   - A `book` parameter of type `Book`.
  *   - A `pageCount` parameter of type `number`.
  * - Returns the same `Book` object with a new `pageCount` property.
  * Example:
- * addPageCount(book, 320);
- * // => { title: "Hitchhiker's Guide to The Galaxy", author: "Douglas Adams", publishedYear: 1965, genre: "Sci-Fi", pageCount: 320 }
+ *  addPageCount(book, 320);
+ *   // => { title: "Hitchhiker's Guide to The Galaxy", author: "Douglas Adams", publishedYear: 1965, genre: "Sci-Fi", pageCount: 320 }
  */
 function addPageCount(book: Book, pageCount: number): Book {
   // write your code here...
@@ -71,14 +71,20 @@ function addPageCount(book: Book, pageCount: number): Book {
 }
 
 /**
- * 4) Using `addISBN` function:
+ * `addISBN` function:
  * - Accepts:
  *   - A `book` parameter of type `Book`.
  *   - An `ISBN` parameter of type `string`.
  * - Returns the same `Book` object with a new `ISBN` property.
  * Example:
- * addISBN(book, "978-3-16-148410-0");
- * // => { title: "Hitchhiker's Guide to The Galaxy", author: "Douglas Adams", publishedYear: 1965, genre: "Sci-Fi", ISBN: "978-3-16-148410-0" }
+ *  addISBN(book, "978-3-16-148410-0");
+ *   // => {
+ *   //       title: "Hitchhiker's Guide to The Galaxy",
+ *   //       author: "Douglas Adams",
+ *   //       publishedYear: 1965,
+ *   //       genre: "Sci-Fi",
+ *   //       ISBN: "978-3-16-148410-0" // ✅ added ISBN
+ *   //    }
  */
 function addISBN(book: Book, ISBN: string): Book {
   // write your code here...
@@ -87,23 +93,29 @@ function addISBN(book: Book, ISBN: string): Book {
 }
 
 /**
- * 5) Using `updatePublishedYear` function:
+ * `updatePublishedYear` function:
  * - Accepts:
  *   - A `book` parameter of type `Book`.
  *   - A `newYear` parameter of type `number` representing the updated publish year.
  * - Returns the same `Book` object with an updated `publishedYear` property.
  * Example:
- * updatePublishedYear(book, 2022);
- * // => { title: "Hitchhiker's Guide to The Galaxy", author: "Douglas Adams", publishedYear: 2022, genre: "Sci-Fi" }
+ *  updatePublishedYear(book, 2022);
+ *    // => {
+ *   //       title: "Hitchhiker's Guide to The Galaxy",
+ *   //       author: "Douglas Adams",
+ *   //       publishedYear: 2022, // ✅ updated publishedYear
+ *   //       genre: "Sci-Fi",
+ *   //       ISBN: "978-3-16-148410-0"
+ *   //    }
  */
 function updatePublishedYear(book: Book, newYear: number): Book {
   // write your code here...
-  
+
   return book;
 }
 
 /**
- * 6) Using `addSecondAuthor` function:
+ * `addSecondAuthor` function:
  * - Accepts:
  *   - A `book` parameter of type `Book`.
  *   - An `additionalAuthor` parameter of type `string`.
@@ -112,8 +124,14 @@ function updatePublishedYear(book: Book, newYear: number): Book {
  *   - If `author` is a string, it converts it to an array and adds the new author.
  * - Returns the updated `Book` object.
  * Example:
- * addSecondAuthor(book, "John Doe");
- * // => { title: "Hitchhiker's Guide to The Galaxy", author: ["Douglas Adams", "John Doe"], publishedYear: 1965, genre: "Sci-Fi" }
+ *  addSecondAuthor(book, "John Doe");
+ *   // => {
+ *   //       title: "Hitchhiker's Guide to The Galaxy",
+ *   //       author: ["Douglas Adams", "John Doe"], // ✅ two authors now
+ *   //       publishedYear: 1965,
+ *   //       genre: "Sci-Fi",
+ *   //       ISBN: "978-3-16-148410-0"
+ *   //    }
  */
 function addSecondAuthor(book: Book, additionalAuthor: string): Book {
   // write your code here...

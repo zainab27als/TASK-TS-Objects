@@ -13,7 +13,7 @@ interface ReviewedBook extends Book {
 }
 
 /**
- * 1) 🌶️🌶️🌶️ Using `addReview` function:
+ * 🌶️🌶️🌶️ `addReview` function:
  * - Accepts 3 parameters:
  *   - A `book` parameter of type `ReviewedBook` (which may or may not have a `reviews` property).
  *   - A `reviewer` parameter of type `string`.
@@ -23,11 +23,21 @@ interface ReviewedBook extends Book {
  * - Returns the updated book object with the new review included in the `reviews` array.
  *
  * Example:
- * const book = { title: "1984", author: "George Orwell", publishedYear: 1949, genre: "Dystopian" };
- * addReview(book, "Alice", "A thought-provoking novel!");
- * // => { title: "1984", author: "George Orwell", publishedYear: 1949, genre: "Dystopian", reviews: [{ reviewer: "Alice", comment: "A thought-provoking novel!" }] }
+ *  const book = { title: "1984", author: "George Orwell", publishedYear: 1949, genre: "Dystopian" };
+ *  addReview(book, "Alice", "A thought-provoking novel!");
+ *  //  =>  {
+ *  //        title: "1984",
+ *  //        author: "George Orwell",
+ *  //        publishedYear: 1949,
+ *  //        genre: "Dystopian",
+ *  //        reviews: [{ reviewer: "Alice", comment: "A thought-provoking novel!" }]
+ *  //      }
  */
-function addReview(book: ReviewedBook, reviewer: string, comment: string): ReviewedBook {
+function addReview(
+  book: ReviewedBook,
+  reviewer: string,
+  comment: string
+): ReviewedBook {
   // write your code here...
 
   return book;
