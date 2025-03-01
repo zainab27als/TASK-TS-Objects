@@ -17,7 +17,7 @@ describe("Books", () => {
     book = {
       title: faker.book.title(),
       author: faker.book.author(),
-      publishedYear: faker.date.past().getFullYear(),
+      publishedYear: faker.date.past({ years: 100 }).getFullYear(),
       genre: faker.book.genre(),
     };
   });
@@ -26,7 +26,9 @@ describe("Books", () => {
     describe("createBook", () => {
       it("should create a book object with specified properties", () => {
         const { title, author, publishedYear, genre } = book;
-        expect(createBook(title, author, publishedYear, genre)).toEqual(book);
+        expect(
+          createBook(title, author as string, publishedYear, genre)
+        ).toEqual(book);
       });
     });
 
@@ -69,7 +71,7 @@ describe("Books", () => {
 
     describe("updatePublishedYear", () => {
       it("should update the published year of the book", () => {
-        const publishYear = faker.date.past().getFullYear();
+        const publishYear = faker.date.past({ years: 100 }).getFullYear();
         const updatedBook = updatePublishedYear(book, publishYear);
         expect(updatedBook.publishedYear).toBe(publishYear);
       });
