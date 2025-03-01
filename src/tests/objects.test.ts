@@ -26,7 +26,9 @@ describe("Books", () => {
     describe("createBook", () => {
       it("should create a book object with specified properties", () => {
         const { title, author, publishedYear, genre } = book;
-        expect(createBook(title, author, publishedYear, genre)).toEqual(book);
+        expect(
+          createBook(title, author as string, publishedYear, genre)
+        ).toEqual(book);
       });
     });
 
