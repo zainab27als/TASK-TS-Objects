@@ -55,33 +55,65 @@ describe("Books", () => {
   describe("Modifying Objects", () => {
     describe("addPageCount", () => {
       it("should add a pageCount property to the book", () => {
+        const bookCopy = { ...book };
         const pageCount = faker.number.int({ min: 100, max: 2000 });
-        const updatedBook = addPageCount(book, pageCount);
+        const updatedBook = addPageCount(bookCopy, pageCount);
         expect(updatedBook.pageCount).toBe(pageCount);
+      });
+
+      it("should modify and return the original book object, NOT a copy", () => {
+        const bookCopy = { ...book };
+        const pageCount = faker.number.int({ min: 100, max: 2000 });
+        const updatedBook = addPageCount(bookCopy, pageCount);
+        expect(updatedBook).toBe(bookCopy);
       });
     });
 
     describe("addISBN", () => {
       it("should add an ISBN to the book", () => {
+        const bookCopy = { ...book };
         const isbn = faker.commerce.isbn();
-        const updatedBook = addISBN(book, isbn);
+        const updatedBook = addISBN(bookCopy, isbn);
         expect(updatedBook.ISBN).toBe(isbn);
+      });
+
+      it("should modify and return the original book object, NOT a copy", () => {
+        const bookCopy = { ...book };
+        const isbn = faker.commerce.isbn();
+        const updatedBook = addISBN(bookCopy, isbn);
+        expect(updatedBook).toBe(bookCopy);
       });
     });
 
     describe("updatePublishedYear", () => {
       it("should update the published year of the book", () => {
+        const bookCopy = { ...book };
         const publishYear = faker.date.past({ years: 100 }).getFullYear();
-        const updatedBook = updatePublishedYear(book, publishYear);
+        const updatedBook = updatePublishedYear(bookCopy, publishYear);
         expect(updatedBook.publishedYear).toBe(publishYear);
+      });
+
+      it("should modify and return the original book object, NOT a copy", () => {
+        const bookCopy = { ...book };
+        const publishYear = faker.date.past({ years: 100 }).getFullYear();
+        const updatedBook = updatePublishedYear(bookCopy, publishYear);
+        expect(updatedBook).toBe(bookCopy);
       });
     });
 
     describe("addSecondAuthor", () => {
       it("should modify the author property to include an additional author", () => {
+        const bookCopy = { ...book };
         const secondAuthor = faker.person.fullName();
-        const updatedBook = addSecondAuthor({ ...book }, secondAuthor);
+        const updatedBook = addSecondAuthor(bookCopy, secondAuthor);
         expect(updatedBook.author).toEqual([book.author, secondAuthor]);
+      });
+
+      it("should modify and return the original book object, NOT a copy", () => {
+        const bookCopy = { ...book };
+        const secondAuthor = faker.person.fullName();
+        const updatedBook = addSecondAuthor(bookCopy, secondAuthor);
+        expect(updatedBook).toBe(bookCopy);
       });
     });
   });
