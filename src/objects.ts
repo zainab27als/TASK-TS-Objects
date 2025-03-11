@@ -28,7 +28,7 @@ function createBook(
 ): Book {
   // write your code here...
 
-  return {} as Book; // replace "{} as Book" with what you see is fit
+  return { title, author, publishedYear, genre }; // replace "{} as Book" with what you see is fit
 }
 
 // DO NOT CHANGE THE LINE OF CODE BELOW (you can use it for testing your code)
@@ -51,7 +51,7 @@ const book = createBook(
 function printBookTitleAndYear(book: Book): string {
   // write your code here...
 
-  return ""; // replace empty string with what you see is fit
+  return `${book.title} ${book["publishedYear"]}`; // replace empty string with what you see is fit
 }
 
 /**
@@ -66,7 +66,7 @@ function printBookTitleAndYear(book: Book): string {
  */
 function addPageCount(book: Book, pageCount: number): Book {
   // write your code here...
-
+  book.pageCount = pageCount;
   return book;
 }
 
@@ -88,7 +88,7 @@ function addPageCount(book: Book, pageCount: number): Book {
  */
 function addISBN(book: Book, ISBN: string): Book {
   // write your code here...
-
+  book.ISBN = ISBN;
   return book;
 }
 
@@ -110,7 +110,7 @@ function addISBN(book: Book, ISBN: string): Book {
  */
 function updatePublishedYear(book: Book, newYear: number): Book {
   // write your code here...
-
+  book.publishedYear = newYear;
   return book;
 }
 
@@ -135,7 +135,11 @@ function updatePublishedYear(book: Book, newYear: number): Book {
  */
 function addSecondAuthor(book: Book, additionalAuthor: string): Book {
   // write your code here...
-
+  if (typeof book.author === "string") {
+    book.author = [book.author, additionalAuthor];
+  } else {
+    book.author.push(additionalAuthor);
+  }
   return book;
 }
 
